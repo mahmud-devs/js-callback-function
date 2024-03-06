@@ -8,8 +8,11 @@ function fun1(callBackTwo) {
         callBackTwo();
     }, 500);
 }
-function fun2() {
-    console.log(`this is function : 2`);
+function fun2(callBackFour) {
+    setTimeout(() => {
+        console.log(`this is function : 2`);
+        callBackFour();
+    }, 1900);
 }
 
 function fun3(callBackOne) {
@@ -19,23 +22,28 @@ function fun3(callBackOne) {
 
 function fun4(callBackThree) {
     console.log(`this is function : 4`);
-    callBackThree()
+    callBackThree();
 }
 
 function fun5() {
     console.log(`this is function : 5`);
 }
 
-function fun6() {
-    console.log(`this is function : 6`);
+function fun6(callBackFive) {
+    setTimeout(() => {
+        console.log(`this is function : 6`);
+        callBackFive();
+    }, 1800);
 }
 
 fun3(function () {
     fun1(function () {
         fun4(function () {
             fun2(function () {
-                
-            })
+                fun6(function () {
+                    fun5();
+                });
+            });
         });
     });
 });
