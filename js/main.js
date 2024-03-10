@@ -35,3 +35,15 @@ function fun6(callBackFive) {
         callBackFive();
     }, 1800);
 }
+
+fun3(function () {
+    fun1(function () {
+        fun4(function () {
+            fun2(function () {
+                fun6(function () {
+                    fun5();
+                });
+            });
+        });
+    });
+});
